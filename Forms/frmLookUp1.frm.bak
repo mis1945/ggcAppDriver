@@ -1,0 +1,1123 @@
+VERSION 5.00
+Object = "{34A378CB-112C-461B-94E8-02D25370A1CE}#8.1#0"; "xrControl.ocx"
+Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "COMCTL32.OCX"
+Object = "{5E9E78A0-531B-11CF-91F6-C2863C385E30}#1.0#0"; "MSFLXGRD.OCX"
+Begin VB.Form frmLookUp1 
+   BorderStyle     =   0  'None
+   Caption         =   "Look Up Table"
+   ClientHeight    =   7275
+   ClientLeft      =   0
+   ClientTop       =   0
+   ClientWidth     =   7800
+   BeginProperty Font 
+      Name            =   "MS Sans Serif"
+      Size            =   9.75
+      Charset         =   0
+      Weight          =   400
+      Underline       =   0   'False
+      Italic          =   0   'False
+      Strikethrough   =   0   'False
+   EndProperty
+   KeyPreview      =   -1  'True
+   LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MinButton       =   0   'False
+   Picture         =   "frmLookUp1.frx":0000
+   ScaleHeight     =   7275
+   ScaleWidth      =   7800
+   ShowInTaskbar   =   0   'False
+   Begin VB.TextBox txtSearch 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00FFFFFF&
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00253315&
+      Height          =   315
+      Left            =   1920
+      TabIndex        =   0
+      Tag             =   "et0;eb0"
+      Top             =   1650
+      Width           =   3795
+   End
+   Begin VB.ComboBox cmbSearch 
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   315
+      Left            =   5790
+      TabIndex        =   1
+      Tag             =   "et0;eb0"
+      Text            =   "Sort Key"
+      Top             =   1650
+      Width           =   1920
+   End
+   Begin xrControl.xrButton xrButton1 
+      Height          =   330
+      Index           =   2
+      Left            =   6705
+      TabIndex        =   13
+      Top             =   1200
+      Width           =   990
+      _ExtentX        =   1746
+      _ExtentY        =   582
+      Caption         =   "Searc&h"
+      AccessKey       =   "h"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+   End
+   Begin xrControl.xrButton xrButton1 
+      Height          =   330
+      Index           =   1
+      Left            =   6705
+      TabIndex        =   12
+      Top             =   840
+      Width           =   990
+      _ExtentX        =   1746
+      _ExtentY        =   582
+      Caption         =   "&Cancel"
+      AccessKey       =   "C"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+   End
+   Begin xrControl.xrButton xrButton1 
+      Default         =   -1  'True
+      Height          =   330
+      Index           =   0
+      Left            =   6705
+      TabIndex        =   11
+      Top             =   480
+      Width           =   990
+      _ExtentX        =   1746
+      _ExtentY        =   582
+      Caption         =   "&Load"
+      AccessKey       =   "L"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+   End
+   Begin ComctlLib.ProgressBar ProgressBar1 
+      Height          =   240
+      Left            =   105
+      TabIndex        =   2
+      Top             =   6915
+      Visible         =   0   'False
+      Width           =   7530
+      _ExtentX        =   13282
+      _ExtentY        =   423
+      _Version        =   327682
+      Appearance      =   0
+   End
+   Begin MSFlexGridLib.MSFlexGrid MSFlexGrid1 
+      Height          =   4890
+      Left            =   60
+      TabIndex        =   10
+      Tag             =   "et0;eb0;et0;fb0"
+      Top             =   2280
+      Width           =   7620
+      _ExtentX        =   13441
+      _ExtentY        =   8625
+      _Version        =   393216
+      FixedCols       =   0
+      BackColorSel    =   8388608
+      AllowBigSelection=   0   'False
+      FocusRect       =   0
+      FillStyle       =   1
+      SelectionMode   =   1
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "GMC-Software Engineering Group"
+      BeginProperty Font 
+         Name            =   "Small Fonts"
+         Size            =   6.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H80000008&
+      Height          =   165
+      Index           =   5
+      Left            =   1920
+      TabIndex        =   9
+      Tag             =   "hb1"
+      Top             =   1170
+      Width           =   2115
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "Quick Search"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   14.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H80000005&
+      Height          =   330
+      Index           =   1
+      Left            =   1920
+      TabIndex        =   8
+      Tag             =   "hb2"
+      Top             =   435
+      Width           =   1875
+   End
+   Begin VB.Image Image4 
+      Height          =   1455
+      Left            =   120
+      Picture         =   "frmLookUp1.frx":361B
+      Top             =   555
+      Width           =   1500
+   End
+   Begin VB.Shape Shape3 
+      BorderColor     =   &H80000005&
+      Height          =   1515
+      Left            =   90
+      Top             =   525
+      Width           =   1560
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "Description"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H80000008&
+      Height          =   210
+      Index           =   2
+      Left            =   1935
+      TabIndex        =   7
+      Tag             =   "hb1"
+      Top             =   1455
+      Width           =   945
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "Fields"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H80000008&
+      Height          =   210
+      Index           =   3
+      Left            =   5790
+      TabIndex        =   6
+      Tag             =   "hb1"
+      Top             =   1455
+      Width           =   495
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "Copyright © 2003 and beyond"
+      BeginProperty Font 
+         Name            =   "Small Fonts"
+         Size            =   6.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H80000008&
+      Height          =   165
+      Index           =   4
+      Left            =   1920
+      TabIndex        =   5
+      Tag             =   "hb1"
+      Top             =   960
+      Width           =   1800
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "Quick Search"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   14.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H80000008&
+      Height          =   330
+      Index           =   0
+      Left            =   1905
+      TabIndex        =   4
+      Tag             =   "1-1"
+      Top             =   465
+      Width           =   1875
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "Version 2.00"
+      BeginProperty Font 
+         Name            =   "Small Fonts"
+         Size            =   6.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H80000008&
+      Height          =   165
+      Index           =   6
+      Left            =   1920
+      TabIndex        =   3
+      Tag             =   "hb1"
+      Top             =   750
+      Width           =   765
+   End
+End
+Attribute VB_Name = "frmLookUp1"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+'€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+' Rex S. Adversalo
+' XerSys Computing
+' Canaoalan, Binmaley, Pangasinan
+'
+' LookUp (RecordSet) v1.5
+'     Display lookup table and allows user to select from a list.
+'     Properties:
+'        RowSource = Recordset that contains the selection
+'        Column    = a string or array of array of field name the will appear on
+'                    lookup table
+'        ColHead   = a string or array of string of column heading
+'        SortKey   = the default column to be use as sort key
+'
+' Copyright 2002 and beyond
+' All Rights Reserved
+'
+' ººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººº
+' €  All rights reserved. No part of this  €€  This Software is Owned by        €
+' €  software may be reproduced or trans-  €€                                   €
+' €  mitted in any  form or by any means,  €€    GUANZON MERCHANDISING CORP.    €
+' €  electronic or mechanical,  including  €€     Guanzon Bldg. Perez Blvd.     €
+' €  recording, or by information storage  €€           Dagupan City            €
+' €  and retrieval systems, without prior  €€  Tel No. 522-1085 ; 522-0863      €
+' €  written permission from the author.   €€                                   €
+' ººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººº
+'
+' ================================================================================
+'  XerSys [ 01/29/2007 09:44 am ]
+'     This will be the lookup when the Paramater is a SQL Statement. Separate it
+'        from the lookup with a recordset parameter to allow a faster disply of
+'        the lookup with a recordset paramater.
+'     This is the lookup that has search feature
+'€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+
+Option Explicit
+
+Private Const xeColMargin As Integer = 30
+Private Const xeCharWidth As Integer = 110
+Private Const xeScrollBar As Integer = 240
+Private Const xeMaxItem As Integer = 20
+Private Const xeMaxRecd As Integer = 32767
+
+' Added the following code(s)
+' Kalyptus
+' 12.20.2006
+Private p_oBugTrack As New clsBugTrack
+
+Private p_oAppDrivr As clsAppDriver
+Private WithEvents p_oLookup As Recordset
+Attribute p_oLookup.VB_VarHelpID = -1
+Private p_oSkin As clsFormSkin
+Private p_oMod As clsMainModules
+
+Private p_sSQLQuery As String
+Private p_asFldName() As String
+Private p_asColName() As String
+Private p_asColHead() As String
+Private p_asColPict() As String
+Private p_acColType() As String
+Private p_anColWdth() As Integer
+Private p_sColHead As String
+Private p_sColName As Variant
+Private p_sFldName As String
+Private p_sColPict As Variant
+Private p_nSearch As Integer
+Private p_bSearch As Boolean
+
+Private p_bSelected As Boolean
+Private p_bRowSource As Boolean
+Private p_bDisplayd As Boolean
+
+Private pnCtr As Integer
+Private pnInterval As Integer
+Private pnProgress As Integer
+Private pbProgress As Boolean
+Private pbFocus As Boolean
+
+Property Set AppDriver(oAppDriver As clsAppDriver)
+   Set p_oAppDrivr = oAppDriver
+   ' Added the following code(s)
+   ' Kalyptus
+   ' 12.20.2006
+   p_oBugTrack.GetDriver oAppDriver
+End Property
+
+Property Set RowSource(Source As Recordset)
+   ' the record source of the Lookup
+   Set p_oLookup = Source
+   p_bRowSource = True
+End Property
+
+Property Let SQLSource(Source As String)
+   p_sSQLQuery = Source
+End Property
+
+Property Let FldTitle(Title As String)
+   ' the column heading of the lookup
+   ' the heading item/s must correspond to the order of the column
+   '     of the rec source. This will be the only visible column
+   '     description that identifies its content
+   
+   p_sColHead = Title
+End Property
+
+Property Let FldName(Name As String)
+   ' added this property to customize the # of column and the order
+   '     of column to be displayed
+   p_sColName = Name
+End Property
+
+Property Let FldCriteria(Value As String)
+   ' added this property to implement the runtime filtering of recordset
+   p_sFldName = Value
+End Property
+
+Property Let FldFormat(Format As String)
+   ' added this property to allow field formating
+   
+   p_sColPict = Format
+End Property
+
+Property Let showSearch(Value As Boolean)
+   ' this will allow the lookup to requery the recordset using the criteria entered
+   
+   p_bSearch = Value
+End Property
+
+Property Get SelectedItem() As Variant
+   ' the selected item
+   
+   If p_bSelected Then
+      SelectedItem = getSelectedItem()
+   Else
+      SelectedItem = Empty
+   End If
+End Property
+
+Private Sub cmbSearch_GotFocus()
+   pbFocus = True
+   With cmbSearch
+      .Tag = .ListIndex
+   End With
+End Sub
+
+Private Sub cmbSearch_LostFocus()
+   ' this will allow the user to modify the search key
+   pbFocus = False
+   With cmbSearch
+      If .ListIndex = -1 Or .ListIndex = .Tag Then Exit Sub
+   End With
+   SortList
+End Sub
+
+Private Sub Form_Activate()
+   If Not p_bDisplayd Then
+      LoadList
+      txtSearch.SetFocus
+   End If
+End Sub
+
+Private Sub Form_Initialize()
+   Set p_oSkin = New clsFormSkin
+   Set p_oMod = New clsMainModules
+   
+   p_bRowSource = False
+   p_bSelected = False
+   p_bDisplayd = False
+   p_bSearch = False
+   p_nSearch = 2
+End Sub
+
+Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
+   Select Case KeyCode
+   Case vbKeyReturn, vbKeyUp, vbKeyDown
+      If KeyCode <> vbKeyReturn And pbFocus Then Exit Sub
+      Select Case KeyCode
+      Case vbKeyReturn, vbKeyDown
+         p_oMod.SetNextFocus
+      Case vbKeyUp
+         p_oMod.SetPreviousFocus
+      End Select
+   End Select
+End Sub
+
+Private Sub Form_Load()
+   Set p_oSkin.Form = Me
+   Set p_oSkin.AppDriver = p_oAppDrivr
+   p_oSkin.ApplySkin xeFormQuickSearch
+End Sub
+
+Private Sub Form_Unload(Cancel As Integer)
+   If p_bRowSource = False Then Set p_oLookup = Nothing
+   Set p_oMod = Nothing
+   Set p_oSkin = Nothing
+End Sub
+
+' assigns the contents of the recordset to the grid
+Public Function LoadList() As Boolean
+   Dim lvValue As Variant
+   Dim lnAlignment As Integer
+   Dim lanColWidth() As Long
+   Dim lnTotWidth As Long
+   Dim lsOldProc As String
+   
+   lsOldProc = p_oAppDrivr.ProcName("LoadList")
+   LoadList = False
+   On Error GoTo errProc
+   
+   If p_bRowSource = False And p_sSQLQuery = Empty Then GoTo endProc
+   getFieldInfo
+   showButton
+   
+   ' assign the column head to the combo box
+   cmbSearch.Clear
+   ReDim lanColWidth(UBound(p_anColWdth))
+   For pnCtr = LBound(p_asColHead) To UBound(p_asColHead)
+      If p_asColHead(pnCtr) = "" Then Exit For
+      cmbSearch.AddItem (p_asColHead(pnCtr))
+      
+      ' assign the length of the headers as the max width of the columns
+      lanColWidth(pnCtr) = Len(Trim(p_asColHead(pnCtr)))
+   Next
+   cmbSearch.ListIndex = IIf(UBound(p_asColHead) > 1, 1, 0)
+   p_oLookup.Sort = p_asColName(cmbSearch.ListIndex)
+
+   ' reformat the flexgrid
+   With MSFlexGrid1
+      .Cols = UBound(p_asColName) + 1
+      .Rows = 2
+      .Row = 0
+      
+      For pnCtr = LBound(p_asColName) To UBound(p_asColName)
+         ' get the appropraite alignment of each field
+         If p_acColType(pnCtr) = "s" Then
+            lnAlignment = flexAlignLeftTop
+         Else
+            lnAlignment = flexAlignRightTop
+         End If
+         
+         .Col = pnCtr
+         .CellAlignment = lvwColumnLeft
+         .CellFontBold = True
+         
+         .TextMatrix(0, pnCtr) = p_asColHead(pnCtr)
+         .ColAlignment(pnCtr) = lnAlignment
+         .ColWidth(pnCtr) = p_anColWdth(pnCtr) * xeCharWidth
+      Next
+
+      ' always move the row to 1 to highlight the record not the header
+      If p_bSearch Then
+         .Row = 1
+         .Col = 0
+         .ColSel = .Cols - 1
+         p_bDisplayd = False
+         LoadList = True
+         GoTo endProc
+      End If
+      
+      ' check if there's a record to display
+      If p_oLookup.RecordCount = 0 Then GoTo endProc
+   
+      If p_oLookup.RecordCount > xeMaxRecd Then
+         MsgBox "Search Record Result Exceeds The Maximum Allowable Record Display!!!" & _
+               vbCrLf & "Please Limit Your Selection by Specifying More Detailed Info!!!", vbCritical, "Warning"
+         GoTo endProc
+      End If
+      .Rows = p_oLookup.RecordCount + 1
+      p_oLookup.MoveFirst
+      
+      showProgress .Rows + 1
+      .Row = 0
+      Do Until p_oLookup.EOF
+         .Row = .Row + 1
+         For pnCtr = 0 To UBound(p_asColName)
+            lvValue = p_oLookup(p_asColName(pnCtr))
+            If IsNull(p_oLookup(p_asColName(pnCtr))) Then lvValue = Empty
+            .TextMatrix(.Row, pnCtr) = Format(lvValue, p_asColPict(pnCtr))
+            
+            If Len(Trim(.TextMatrix(.Row, pnCtr))) > lanColWidth(pnCtr) Then
+               lanColWidth(pnCtr) = Len(Trim(.TextMatrix(.Row, pnCtr)))
+            End If
+         Next
+         
+         p_oLookup.MoveNext
+      Loop
+
+      .Row = 1
+      .Col = 0
+      .ColSel = .Cols - 1
+
+      ' after fetching all record to the grid, adjust the column width
+      lnTotWidth = 0
+      For pnCtr = 0 To .Cols - 1
+         If lanColWidth(pnCtr) < p_anColWdth(pnCtr) Then p_anColWdth(pnCtr) = lanColWidth(pnCtr)
+         .ColWidth(pnCtr) = p_anColWdth(pnCtr) * xeCharWidth
+         lnTotWidth = lnTotWidth + p_anColWdth(pnCtr)
+      Next
+      
+      If .Rows > xeMaxItem Then
+         If (lnTotWidth * xeCharWidth) < .Width - xeScrollBar Then
+            For pnCtr = 0 To .Cols - 1
+               .ColWidth(pnCtr) = (p_anColWdth(pnCtr) * _
+                                    ((.Width - xeScrollBar) / xeCharWidth) / lnTotWidth) * xeCharWidth - xeColMargin
+            Next
+         End If
+      Else
+         If (lnTotWidth * xeCharWidth) < .Width - xeColMargin Then
+            For pnCtr = 0 To .Cols - 1
+               .ColWidth(pnCtr) = (p_anColWdth(pnCtr) * _
+                                    (.Width / xeCharWidth) / lnTotWidth) * xeCharWidth - xeColMargin
+            Next
+         End If
+      End If
+   End With
+   hideProgress
+   p_bDisplayd = True
+   LoadList = True
+   
+endProc:
+   p_oAppDrivr.ProcName lsOldProc
+   Exit Function
+errProc:
+' Added the following code(s)
+' Kalyptus
+' 12.20.2006
+   ShowError lsOldProc & "( " & " )"
+End Function
+
+' retrieves the table and set the field property
+Private Sub getFieldInfo()
+   Dim lsSQL As String
+   Dim lsOldProc As String
+   
+   lsOldProc = p_oAppDrivr.ProcName("getFieldInfo")
+   On Error GoTo errProc
+   
+   ' if SQL query is passed retrieve the records
+   If Not p_bRowSource Then
+      Set p_oLookup = New Recordset
+      lsSQL = p_sSQLQuery
+      If p_bSearch Then lsSQL = p_oMod.AddCondition(lsSQL, "0 = 1")
+      p_oLookup.Open lsSQL, p_oAppDrivr.Connection, adOpenStatic, , adCmdText
+   End If
+   
+   ' check if client passed a field filter
+   If p_sColName <> "" Then
+      p_asColName = Split(p_sColName, "»", , vbTextCompare)
+   Else
+      ' if not include all fields in the lookup
+      ReDim p_asColName(p_oLookup.Fields.Count - 1) As String
+      For pnCtr = 0 To UBound(p_asColName)
+         p_asColName(pnCtr) = p_oLookup.Fields(pnCtr).Name
+      Next
+   End If
+   
+   If p_sColHead <> Empty Then
+      p_asColHead = Split(p_sColHead, "»", -1, vbTextCompare)
+   Else
+      ReDim p_asColHead(UBound(p_asColName)) As String
+      For pnCtr = 0 To UBound(p_asColName)
+         p_asColHead(pnCtr) = p_asColName(pnCtr)
+      Next
+   End If
+   
+   ' after retrieving the field name, create a field criteria
+   ' to be used in creating sql statement at runtime
+   If p_sFldName <> Empty Then
+      p_asFldName = Split(p_sFldName, "»", , vbTextCompare)
+   Else
+      ReDim p_asFldName(UBound(p_asColName)) As String
+      For pnCtr = 0 To UBound(p_asColName)
+         p_asFldName(pnCtr) = p_asColName(pnCtr)
+      Next
+   End If
+
+   ' after retrieving the column, set the type and the width
+   ReDim p_acColType(UBound(p_asColName))
+   ReDim p_asColPict(UBound(p_asColName))
+   ReDim p_anColWdth(UBound(p_asColName))
+   For pnCtr = 0 To UBound(p_asColName)
+      p_anColWdth(pnCtr) = p_oLookup(p_asColName(pnCtr)).DefinedSize
+      p_asColPict(pnCtr) = "@"
+      
+      If p_anColWdth(pnCtr) < Len(p_asColHead(pnCtr)) Then
+         p_anColWdth(pnCtr) = Len(p_asColHead(pnCtr))
+      End If
+      
+      Select Case p_oLookup(p_asColName(pnCtr)).Type
+      Case 129, 130, 202, 200    ' string
+         p_acColType(pnCtr) = "s"
+      Case 2, 3, 11, 17, 72      ' numeric without decimal point
+         p_acColType(pnCtr) = "n"
+      Case 4, 5, 6, 131          ' numeric with decimal point
+         p_acColType(pnCtr) = "l"
+      Case 135                   ' datetime
+         p_acColType(pnCtr) = "d"
+      End Select
+   Next
+   If p_sColPict <> Empty Then p_asColPict = Split(p_sColPict, "»", -1, vbTextCompare)
+   
+endProc:
+   p_oAppDrivr.ProcName lsOldProc
+   Exit Sub
+errProc:
+' Added the following code(s)
+' Kalyptus
+' 12.20.2006
+   ShowError lsOldProc & "( " & " )"
+End Sub
+
+Private Function ResultingText(iKeyAscii%) As String
+   'Purpose: Works out the text string that results from an original string
+   '         comprising the specified elements, following addition of <KeyAscii>
+   '         at <iSelStart>
+   '
+   'Returns: Resulting text string
+   
+   Dim sLeft As String             ' string element
+   Dim sSel As String              ' selected string element
+   Dim sRight As String            ' string element
+   Dim sResult As String           ' what well return
+   
+   On Error Resume Next
+   
+   With txtSearch
+      sLeft = Left$(.Text, .SelStart)         ' SelStart is 0-based
+      sSel = Mid$(.Text, .SelStart + 1, .SelLength)
+      sRight = Mid$(.Text, .SelStart + .SelLength + 1)
+   End With
+   
+   Select Case iKeyAscii
+      Case vbKeyBack             'Backspace Key
+         If Len(sSel) = 0 Then   'Nothing selected
+            sResult = MinusRightChar(sLeft) & sRight  'Del first char on the left
+         Else                    'Selection exists
+            sResult = sLeft & sRight   'Delete selected text only
+         End If
+         
+      Case vbKeyDelete           'Delete key
+         If Len(sSel) = 0 Then   'Nothing selected
+            sResult = sLeft & MinusLeftChar(sRight)    'Del first char on the right
+         Else
+            sResult = sLeft & sRight    'Delete selected text only
+         End If
+         
+      Case Else         'an ordinary character
+         sResult = sLeft & Chr$(iKeyAscii) & sRight
+   End Select
+   ResultingText = sResult
+End Function
+
+Private Function MinusLeftChar(ByVal sGiven As String) As String
+
+   'Purpose: Returns <sGiven> with the leftmost character removed, or "" if
+   '         <sGiven> was empty.
+   '
+   'Returns: The trimmed string
+   '
+   'Remarks: Just a safe wrapper for Mid$()
+   On Error Resume Next
+   
+   If Len(sGiven) = 0 Then
+      MinusLeftChar = ""
+   Else
+      MinusLeftChar = Mid$(sGiven, 2)
+   End If
+End Function
+
+Private Function MinusRightChar(ByVal sGiven As String) As String
+
+   'Purpose: Returns <sGiven> with the rightmost character removed, or "" if
+   '         <sGiven> was empty.
+   '
+   'Returns: The trimmed string
+   '
+   'Remarks: Just a safe wrapper for Left$()
+   On Error Resume Next
+   
+   If Len(sGiven) = 0 Then
+      MinusRightChar = ""
+   Else
+      MinusRightChar = Left$(sGiven, Len(sGiven) - 1)
+   End If
+End Function
+
+Private Sub MSFlexGrid1_LostFocus()
+   MSFlexGrid1.BackColorSel = &H800000
+End Sub
+
+
+Private Sub MSFlexGrid1_DblClick()
+   With MSFlexGrid1
+      If .MouseRow = 0 Then
+         If .MouseCol <> (cmbSearch.ListIndex) Then
+            cmbSearch.ListIndex = .MouseCol
+            SortList
+         End If
+      Else
+         xrButton1_Click 0
+      End If
+   End With
+End Sub
+
+Private Sub MSFlexGrid1_GotFocus()
+   With MSFlexGrid1
+      .HighLight = flexHighlightAlways
+      .BackColorSel = &HB06F00
+   End With
+End Sub
+
+Private Function SearchOn(ByVal lsSeek) As Boolean
+   Dim lnCtr As Long
+   Dim lbFound As Boolean
+   
+   lbFound = False
+   With MSFlexGrid1
+      For lnCtr = 1 To .Rows
+         If StrComp(Left(.TextMatrix(lnCtr, cmbSearch.ListIndex), Len(lsSeek)), lsSeek, vbTextCompare) >= 0 Then
+            .TopRow = lnCtr
+            .Row = lnCtr
+            .RowSel = lnCtr
+            .ColSel = MSFlexGrid1.Cols - 1
+            lbFound = True
+            Exit For
+         End If
+      Next
+   End With
+   SearchOn = lbFound
+End Function
+
+Private Sub ReLoadList()
+   Dim lvValue As Variant
+   Dim lnCol As Long
+   Dim lsOldProc As String
+   
+   lsOldProc = p_oAppDrivr.ProcName("ReLoadList")
+   On Error GoTo errProc
+   
+   With MSFlexGrid1
+      p_bDisplayd = False
+      If p_oLookup.RecordCount = 0 Then
+         .Rows = 2
+         GoTo endProc
+      End If
+      
+      If p_oLookup.RecordCount > xeMaxRecd Then
+         MsgBox "Search Record Result Exceeds The Maximum Allowable Record Display!!!" & _
+               vbCrLf & "Please Limit Your Selection by Specifying More Detailed Info!!!", vbCritical, "Warning"
+         GoTo endProc
+      End If
+
+      p_oLookup.MoveFirst
+      .Rows = p_oLookup.RecordCount + 1
+      
+      showProgress .Rows + 1
+      pnCtr = 0
+      p_bDisplayd = True
+      Do Until p_oLookup.EOF
+         pnCtr = pnCtr + 1
+         For lnCol = 0 To UBound(p_asColName)
+            lvValue = p_oLookup(p_asColName(lnCol))
+            If IsNull(p_oLookup(p_asColName(lnCol))) Then lvValue = Empty
+            .TextMatrix(pnCtr, lnCol) = Format(lvValue, p_asColPict(lnCol))
+         Next
+         
+         p_oLookup.MoveNext
+      Loop
+      hideProgress
+   End With
+
+endProc:
+   p_oAppDrivr.ProcName lsOldProc
+   Exit Sub
+errProc:
+' Added the following code(s)
+' Kalyptus
+' 12.20.2006
+   ShowError lsOldProc & "( " & " )"
+End Sub
+
+Private Sub SortList()
+   If p_bDisplayd = False Then Exit Sub
+   p_oLookup.Sort = p_asColName(cmbSearch.ListIndex)
+   ReLoadList
+End Sub
+
+Private Function getSelectedItem() As Variant
+   Dim lvSelected As Variant
+   Dim lsOldProc As String
+   
+   lsOldProc = p_oAppDrivr.ProcName("getSelectedItem")
+   On Error GoTo errProc
+   
+   lvSelected = ""
+   With MSFlexGrid1
+      If .RowSel > 0 Then
+         p_oLookup.MoveFirst
+         p_oLookup.Move .RowSel - 1, adBookmarkFirst
+         For pnCtr = 0 To p_oLookup.Fields.Count - 1
+            Select Case p_oLookup(pnCtr).Type
+            Case 2, 3, 11, 17, 72, 4, 5, 6, 131
+               lvSelected = lvSelected & Format(p_oLookup(pnCtr)) & "»"
+            Case Else
+               lvSelected = lvSelected & p_oLookup(pnCtr) & "»"
+            End Select
+         Next
+         lvSelected = Left(lvSelected, Len(lvSelected) - 1)
+
+      End If
+   End With
+   getSelectedItem = lvSelected
+
+endProc:
+   p_oAppDrivr.ProcName lsOldProc
+   Exit Function
+errProc:
+' Added the following code(s)
+' Kalyptus
+' 12.20.2006
+   ShowError lsOldProc & "( " & " )"
+End Function
+
+Private Sub p_oLookup_MoveComplete(ByVal adReason As EventReasonEnum, ByVal pError As Error, adStatus As EventStatusEnum, ByVal pRecordset As Recordset)
+   If Not pbProgress Then Exit Sub
+   DoEvents
+   If Not pRecordset.EOF Then MoveProgress
+End Sub
+
+Private Sub txtSearch_GotFocus()
+   pbFocus = True
+End Sub
+
+Private Sub txtSearch_KeyDown(KeyCode As Integer, Shift As Integer)
+   'Remarks: This procedure only exists to trap a delete key, which irritatingly,
+   '         does not trigger a KeyPress event
+   '
+   Dim lsSearchOn As String          'current string to search on
+
+   On Error Resume Next
+   
+   If p_bDisplayd = False Then Exit Sub
+   
+   'Check if we're dealing with a Delete key
+   If KeyCode = vbKeyDown Or KeyCode = vbKeyUp Or _
+          KeyCode = vbKeyPageDown Or KeyCode = vbKeyPageUp Then
+      MSFlexGrid1.SetFocus
+      Exit Sub
+   ElseIf KeyCode <> vbKeyDelete Then
+      Exit Sub
+   End If
+   
+   'The delete key was pressed; decide what to search on
+   lsSearchOn = ResultingText(KeyCode)
+   SearchOn lsSearchOn
+End Sub
+
+Private Sub txtSearch_KeyPress(KeyAscii As Integer)
+   'Remarks: 1. When the user types something into the text portion, move to the
+   '            first list entry which begins with the displayed text
+   '         2. Not all keys trigger this event. In particular -
+   '              <Delete> - triggers KeyDown by not KeyPress
+   '              <BackSpace> - triggers KeyPress by not KeyDown
+   '         3. This code was originally in the change() event, but confusing inter
+   '            actions kept occurring (list index was being set to -1 by WINDOWS)
+   '
+   Dim lsSearchOn As String             'current string to search on
+
+   On Error Resume Next
+   
+   If p_bDisplayd = False Then Exit Sub
+   If KeyAscii = vbKeyReturn Or KeyAscii = vbKeyTab Then Exit Sub
+   
+   'A content-modifying key was entered; decide what to search on
+   lsSearchOn = ResultingText(KeyAscii)
+   If SearchOn(lsSearchOn) = False Then KeyAscii = 0
+End Sub
+
+Private Sub txtSearch_LostFocus()
+   pbFocus = False
+End Sub
+
+Private Sub xrButton1_Click(Index As Integer)
+   Select Case LCase(xrButton1(Index).Caption)
+   Case "&load"
+      If MSFlexGrid1.RowSel < 1 Or p_bDisplayd = False Then
+         MsgBox "Nothing to Load!", vbInformation, "Warning"
+         p_bSelected = False
+         Exit Sub
+      End If
+      p_bSelected = True
+      Me.Hide
+   Case "&close"
+      p_bSelected = False
+      Me.Hide
+   Case "searc&h"
+      getList
+      p_oLookup.Sort = p_asColName(cmbSearch.ListIndex)
+      ReLoadList
+   End Select
+End Sub
+
+Private Sub showProgress(ByVal lnMaxLength As Long)
+   pnInterval = 1
+   pnProgress = 1
+   If lnMaxLength > 32767 Then
+      pnInterval = Int(lnMaxLength / 32767)
+      ProgressBar1.Max = 32767
+   Else
+      ProgressBar1.Max = lnMaxLength
+   End If
+   
+   pbProgress = True
+   ProgressBar1.Visible = True
+End Sub
+
+Private Sub MoveProgress()
+   pnProgress = pnProgress + 1
+   DoEvents
+   ProgressBar1.Value = Int(pnProgress / pnInterval)
+   DoEvents
+End Sub
+
+Private Sub hideProgress()
+   pbProgress = False
+   ProgressBar1.Visible = False
+End Sub
+
+Private Sub ShowError(ByVal lsProcName As String)
+' Added the following code(s)
+' Kalyptus
+' 12.12.2006
+    With p_oBugTrack
+       .LogError Err.Number, Err.Description, "frmLookUp", lsProcName, Erl
+    End With
+    With Err
+       .Raise .Number, .Source, .Description
+    End With
+End Sub
+
+Private Function showButton()
+   If p_bSearch Then
+      xrButton1(1).Caption = "Searc&h"
+      xrButton1(2).Caption = "&Close"
+      xrButton1(2).Visible = True
+   Else
+      xrButton1(1).Caption = "&Close"
+      xrButton1(2).Visible = False
+   End If
+End Function
+
+Private Sub getList()
+   Dim lsOldProc As String
+   Dim lsSQL As String
+   
+   lsOldProc = p_oAppDrivr.ProcName("getList")
+   On Error GoTo errProc
+   
+   If p_sSQLQuery <> Empty Then
+      lsSQL = p_sSQLQuery
+   Else
+      lsSQL = p_oLookup.Source
+   End If
+   
+   If txtSearch.Text <> Empty Then
+      lsSQL = p_oMod.AddCondition(lsSQL, p_asFldName(cmbSearch.ListIndex) & " LIKE " & p_oMod.strParm(Trim(txtSearch) & "%"))
+   End If
+   
+   If p_oLookup.State = adStateOpen Then p_oLookup.Close
+   p_oLookup.Open lsSQL, p_oAppDrivr.Connection, adOpenStatic, , adCmdText
+   
+endProc:
+   p_oAppDrivr.ProcName lsOldProc
+   Exit Sub
+errProc:
+' Added the following code(s)
+' Kalyptus
+' 12.20.2006
+   ShowError lsOldProc & "( " & " )"
+End Sub

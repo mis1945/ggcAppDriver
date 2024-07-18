@@ -1,0 +1,12 @@
+clsAppDriver = 22, 22, 653, 532, 
+frmApproval = 0, 0, 666, 430, , 66, 87, 764, 446, C
+frmLogin = 22, 29, 688, 459, , 88, 116, 808, 398, C
+frmLookUp = 88, 116, 788, 475, , 44, 58, 744, 417, C
+frmProgress = 0, 0, 0, 0, C, 88, 116, 754, 546, C
+frmUnlock = 22, 29, 742, 311, , 0, 0, 720, 282, C
+frmUserConfirmation = 22, 29, 688, 459, , 0, 0, 666, 430, C
+clsMasterDetail = 110, 145, 810, 504, 
+clsMainModules = 132, 174, 820, 546, 
+clsFormSkin = 0, 0, 688, 372, C
+clsFormDriver = 154, 203, 820, 633, 
+clsSpeedometer = 88, 116, 754, 546, Z

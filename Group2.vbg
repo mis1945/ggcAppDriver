@@ -1,0 +1,4 @@
+VBGROUP 5.0
+StartupProject=..\..\My Projects\Supplies Inventoy\AssetsInventory.vbp
+Project=..\ggcAccounting\ggcAccounting.vbp
+Project=ggcAppDriver.vbp

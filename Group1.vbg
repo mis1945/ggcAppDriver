@@ -1,0 +1,4 @@
+VBGROUP 5.0
+StartupProject=..\..\My Projects\MC Registration Monitoring\MCRegistrationMonitoring.vbp
+Project=..\ggcSupplies\ggcSupplies.vbp
+Project=ggcAppDriver.vbp
